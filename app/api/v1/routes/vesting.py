@@ -742,7 +742,7 @@ async def vested(req: AddressList):
             cache.set(f"get_vesting_vested_token_boxes", checkBoxes, CACHE_TTL)
         for box in checkBoxes:
             if box["additionalRegisters"]["R5"][4:] in vestingKeys.keys():
-                parameters = ErgoAppKit.deserializeLongArray(box["additionalRegisters"]["R4"])
+                parameters = appKit.deserializeLongArray(box["additionalRegisters"]["R4"])
                 blockTime           = int(time()*1000)
 
                 redeemPeriod        = parameters[0]
